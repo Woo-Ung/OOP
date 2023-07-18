@@ -154,23 +154,131 @@
 //	yourPhone.color = 2;
 //}
 
-class Computer
-{
-	private :
-		int power;
-		std::string mainboard;
+//class Computer
+//{
+//	private :
+//		int power;
+//		std::string mainboard;
+//
+//		void PrintPower()
+//		{
+//			std::cout << power << std::endl;
+//		}
+//
+//	public :
+//		int cost;
+//		int color;
+//
+//		void PrintCost()
+//		{
+//			std::cout << cost << std::endl;
+//		}
+//};
 
-		void PrintPower()
-		{
-			std::cout << power << std::endl;
-		}
 
-	public :
-		int cost;
-		int color;
+// 클래스의 멤버함수 정의
+//return-type <class-name>::<member-function>(parameters...)
+//{
+//}
+//
+//:: (=scope resolution operator)
 
-		void PrintCost()
-		{
-			std::cout << cost << std::endl;
-		}
-};
+//class Car
+//{
+//	// default access modifier : private
+//public:
+//	// state : member varaiable
+//	int wheels;
+//	int speed;
+//	int weight;
+//
+//	//behaviour : member function
+//	void Start();
+//	void Drive();
+//	void Parking();
+//};
+//
+//void Car::Start()
+//{
+//	speed = 0;
+//	std::cout << "Engine start!" << std::endl;
+//}
+//
+//int main()
+//{
+//	// Car 클래스(type}를 i5 인스턴스화(Instance)
+//	Car i5;
+//
+//	i5.wheels = 4;
+//	i5.speed = 100;
+//
+//	i5.Start();
+//}
+
+//c++ 에서는 구조체는 모든 멤버가 public인 클래스와 동일
+//	구조체 : 멤버 변수들만 존재
+//	클래스 : 멤버 변수 + 멤버 함수
+
+// 캡슐화(Capsulation)
+//	정보은닉(informatio hiding)
+//		보안
+//		사용성
+// 
+//	다른 클래스, 구조제와 같은 타입정보들도 캡슐화
+
+// 
+//		class Dog
+//		{
+//			enum Color
+//			{
+//				WHITE = 0XFFFFFF,
+//				BLACK = 0x101010
+//			};
+//			Color color;
+//		};
+// 
+//		class Cat
+//		{
+// //		enum Color
+//			{
+//				WHITE = 0XF0F0F0,
+//				BLACK = 0x000000
+//			};
+// 			Color color;
+//		};
+// 
+//		Dog jhon;
+//		jhon.color = WHITE;
+// 
+//		Cat nabi;
+//		nabi.color = WHITE;
+//
+// Tip) 클래스 선언 정리
+// 
+//		1. 멤버 변수 / 멤버 함수를 구분해서  //추천
+//		class MyClass
+//		{
+//		private:
+//			int x;
+//		public:
+//			int y;
+//		
+//		private:
+//			void f();
+//		public:
+//			void g();
+//		};
+// 
+//		2. 접근 권한으로 구분
+//		class MyClass
+//		{
+//		private:
+//			int x;
+//			void f();
+// 
+//		public:
+//			int y;
+//			void g();
+//		}
+// 
+//
