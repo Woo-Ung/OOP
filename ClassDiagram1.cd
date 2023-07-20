@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Player">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="Player::Sword" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Player.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Enum Name="Player::Costume" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Player.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAQAAAAAAAAAAAIAEAAAAAAAAAIAI=</HashCode>
+      <FileName>Player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyArray">
+    <Position X="6" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAIAAAAAAQAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>main2.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

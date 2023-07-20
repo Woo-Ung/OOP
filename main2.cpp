@@ -276,3 +276,58 @@
 //
 //	m1.Print();
 //}
+
+//대리(위임) 생성자(Delegate Constructor)
+
+	//<constructor> : <other-constructor>
+	//{
+	//}
+	//: 표기를 사용하므로 대리생성자, 멤버 초기화 리스트 중 하나만 사용 가능함
+
+//class Point2D
+//{
+//private:
+//	int mX;
+//	int mY;
+//
+//public:
+//	Point2D() : Point2D(0,0)
+//	{
+//		std::cout << "< 기본생성자 >" << std::endl;
+//	}
+//	Point2D(int x, int y) : mX(x), mY(y)
+//	{
+//		std::cout << "< x,y생성자 >" << std::endl;
+//	}
+//	double Distance() const;
+//	void Print() const;
+//};
+//
+//int main()
+//{
+//	Point2D pt{};
+//}
+
+// 동적 배열
+class MyArray
+{
+private:
+	int* mArray;
+	int mLength;
+
+public:
+	MyArray(int len) : mLength{ len }, mArray{ new int [len] {} }
+	{
+		//mArray = mew int [len] {};
+	}
+
+	~MyArray()
+	{
+		delete[] mArray;
+	}
+};
+
+int main()
+{
+	MyArray array{ 100 };
+}
