@@ -1,22 +1,19 @@
 #pragma once
 
-class String
-{
-	const int number{ 12 };
-	char mString[12];
+const int mNumber{ 12 };
 
-public:
-	String(const char myString[12])
-	{
-		for (int i = 0; i < number;i++)
+class String
+{	
+	char mString[mNumber]{};
+
+public:	
+	String(const char myString[mNumber])
+	{		
+		for (int i = 0; i < mNumber;i++)
 		{
 			mString[i] = myString[i];
 		}
 	}
 
-	~String()
-	{
-		delete[] mString;
-	}
 	void Print(String x);
 };
