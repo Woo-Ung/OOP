@@ -3,6 +3,6 @@
 
 int main()
 {
-	String s1( "Hello World" );
+	String s1("Hello World");
 	s1.Print(s1);
 }

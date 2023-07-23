@@ -4,5 +4,6 @@
 
 void String::Print(String x)
 {
-	std::cout << x.myString << std::endl;
+	std::cout << x.mString << std::endl;
+}
 
