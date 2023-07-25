@@ -159,32 +159,101 @@
 //	Upgrade(shortSword);
 //}
 
-class Sword; //forward declaration
+//class Sword; //forward declaration
+//
+//class Player
+//{
+//public:
+//	void AttackWith(Sword& sword);
+//};
+//
+//class Sword
+//{
+//	friend void Player::AttackWith(Sword& sword);
+//
+//private:
+//	int mDamage;
+//public:
+//	Sword(int dmg) : mDamage(dmg) {}
+//};
+//
+//void Player::AttackWith(Sword& sword)
+//{
+//	std::cout << "칼을 휘둘러" << sword.mDamage << "만큼 피해를 주었다!" << std::endl;
+//}
+//
+//int main()
+//{
+//	Sword muramasa{ 10 };
+//	Player p1;
+//	p1.AttackWith(muramasa);
+//}
 
-class Player
+//연산자 오버로딩(operator overloading)
+//
+//	연산자 = 함수
+//
+//	a. 피연산자가 기본 타입이면 기본 연산
+//	b. 피연산자가 클래스와 같은 사용자 정의 타입이면
+//		- 연산자 오버로딩
+//		- 기본 타입으로 시도
+// 
+//	전역 함수 버전의 연산자 오버로딩
+//	멤버 함수 버전의 연산자 오버로딩
+//		피연산자 중 하나가 this		
+
+//r-value
+//
+//익명객체(anonymous object)
+
+//class int
+//{ 
+//	int();
+//	int(int x);
+//}
+//
+//int square(int x)
+//{
+//	return x * x;
+//}
+//
+//int main()
+//{
+//	int x{ 2 };
+//	std::cout << Square(x) << std::endl;
+//}
+
+class MyInt
 {
 public:
-	void AttackWith(Sword& sword);
+	int mValue;
+
+	MyInt() : mValue()
+	{
+		std::cout << "+[기본생성자]" << std::endl;
+	}
+	MyInt(int value) : mValue{value}
+	{
+		std::cout << "+[생성자] : " << value << std::endl;
+	}
+	~MyInt()
+	{
+		std::cout << "-[소멸자] : " << mValue << std::endl;
+	}
 };
 
-class Sword
+MyInt operator + (MyInt op1, MyInt op2)
 {
-	friend void Player::AttackWith(Sword& sword);
+	return MyInt(op1.mValue + op2.mValue);
+}
 
-private:
-	int mDamage;
-public:
-	Sword(int dmg) : mDamage(dmg) {}
-};
-
-void Player::AttackWith(Sword& sword)
+MyInt Square(MyInt val)
 {
-	std::cout << "칼을 휘둘러" << sword.mDamage << "만큼 피해를 주었다!" << std::endl;
+	return MyInt(val.mValue * val.mValue);
 }
 
 int main()
 {
-	Sword muramasa{ 10 };
-	Player p1;
-	p1.AttackWith(muramasa);
+	MyInt x{ 2 }, y{ 3 };
+	Square(x);
 }
