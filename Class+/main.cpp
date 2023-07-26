@@ -223,37 +223,134 @@
 //	std::cout << Square(x) << std::endl;
 //}
 
-class MyInt
-{
-public:
-	int mValue;
+//class MyInt
+//{
+//public:
+//	int mValue;
+//
+//	MyInt() : mValue()
+//	{
+//		std::cout << "+[기본생성자]" << std::endl;
+//	}
+//	MyInt(int value) : mValue{value}
+//	{
+//		std::cout << "+[생성자] : " << value << std::endl;
+//	}
+//	~MyInt()
+//	{
+//		std::cout << "-[소멸자] : " << mValue << std::endl;
+//	}
+//};
+//
+//MyInt operator + (MyInt op1, MyInt op2)
+//{
+//	return MyInt(op1.mValue + op2.mValue);
+//}
+//
+//MyInt Square(MyInt val)
+//{
+//	return MyInt(val.mValue * val.mValue);
+//}
+//
+//int main()
+//{
+//	MyInt x{ 2 }, y{ 3 };
+//	Square(x);
+//}
 
-	MyInt() : mValue()
+//type casting
+//
+//명시적 형변환
+//
+//int myInteger = 1;
+//float myFloat = operator int(myInteger);
+
+// () - Funtion Call Operator
+
+//Functor = Function + Object 함수 객체
+
+//Stream Operator
+//	Point2D pt;
+//	std::cout << pt;
+//	멤버 함수 X (std::cout 클래스꺼)
+//	
+
+//복사(Copy)
+//class MyClass
+//{
+//private:
+//	int mValue;
+//
+//public:
+//	MyClass(int x) : mValue(x)
+//	{
+//	}
+//};
+//
+//int main()
+//{
+//	int y1 = 5;		//복사(대입) 초기화
+//	int y2(5);		//직접 초기화
+//	int y3{ 5 };	//유니폼 초기화
+//
+//	MyClass x1 = 5;	//복사(대입) 초기화
+//	// ㄴ= MyClass x1 = MyClass(5);
+//
+//	MyClass x2(5);	//직접 초기화
+//	MyClass x3{ 5 };//유니폼 초기화
+//}
+
+//복사 생성자
+
+class MyClass
+{
+	int mValue;
+public:
+	MyClass(int x) : mValue(x)
 	{
-		std::cout << "+[기본생성자]" << std::endl;
+		std::cout << "일반 생성자" << std::endl;
 	}
-	MyInt(int value) : mValue{value}
+	MyClass(const MyClass& target)
 	{
-		std::cout << "+[생성자] : " << value << std::endl;
+		mValue = target.mValue;
+		std::cout << "복사 생성자" << std::endl;
 	}
-	~MyInt()
+	~MyClass()
 	{
-		std::cout << "-[소멸자] : " << mValue << std::endl;
+		std::cout << "[-]" << std::endl;
 	}
 };
 
-MyInt operator + (MyInt op1, MyInt op2)
-{
-	return MyInt(op1.mValue + op2.mValue);
-}
-
-MyInt Square(MyInt val)
-{
-	return MyInt(val.mValue * val.mValue);
-}
-
 int main()
 {
-	MyInt x{ 2 }, y{ 3 };
-	Square(x);
+	MyClass c1(1);
+	MyClass c2(c1);
+
+	std::cout << "-----------" << std::endl;
+
+	MyClass c3( MyClass(1) );
 }
+
+Shallow Copy vs Deep Copy
+
+class Dog
+{
+};
+
+class DogHouse
+{
+	Dog* pOwner;
+
+	DogHouse(const DogHouse& from)
+	{
+		// shallow copy
+		//pOwner = from.pOwner;
+
+		//Deep copy
+		pOwner = new Dog(*from.pOwner);
+	}
+};
+
+Dog happy;
+
+DogHouse home(happy);
