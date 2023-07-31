@@ -302,55 +302,174 @@
 
 //복사 생성자
 
-class MyClass
-{
-	int mValue;
-public:
-	MyClass(int x) : mValue(x)
-	{
-		std::cout << "일반 생성자" << std::endl;
-	}
-	MyClass(const MyClass& target)
-	{
-		mValue = target.mValue;
-		std::cout << "복사 생성자" << std::endl;
-	}
-	~MyClass()
-	{
-		std::cout << "[-]" << std::endl;
-	}
-};
+//class MyClass
+//{
+//	int mValue;
+//public:
+//	MyClass(int x) : mValue(x)
+//	{
+//		std::cout << "일반 생성자" << std::endl;
+//	}
+//	MyClass(const MyClass& target)
+//	{
+//		mValue = target.mValue;
+//		std::cout << "복사 생성자" << std::endl;
+//	}
+//	~MyClass()
+//	{
+//		std::cout << "[-]" << std::endl;
+//	}
+//};
+//
+//int main()
+//{
+//	MyClass c1(1);
+//	MyClass c2(c1);
+//
+//	std::cout << "-----------" << std::endl;
+//
+//	MyClass c3( MyClass(1) );
+//}
+//
+//Shallow Copy vs Deep Copy
+//
+//class Dog
+//{
+//};
+//
+//class DogHouse
+//{
+//	Dog* pOwner;
+//
+//	DogHouse(const DogHouse& from)
+//	{
+//		// shallow copy
+//		//pOwner = from.pOwner;
+//
+//		//Deep copy
+//		pOwner = new Dog(*from.pOwner);
+//	}
+//};
+//
+//Dog happy;
+//
+//DogHouse home(happy);
 
-int main()
-{
-	MyClass c1(1);
-	MyClass c2(c1);
 
-	std::cout << "-----------" << std::endl;
 
-	MyClass c3( MyClass(1) );
-}
 
-Shallow Copy vs Deep Copy
+//Relationship
+//
+//is-part-of	: Composition
+//has-a		: Aggregation
+//use-a		: Asscociation
+//is-a		: Generalization / Specialization
 
-class Dog
-{
-};
 
-class DogHouse
-{
-	Dog* pOwner;
+//엔진 is-part-of 차
+//
+//엔진은 차의 구성요소 중 하나
+//	- 멤버 변수 주으이 하나
+//엔진은 한번에 하나의 차량에만 탑재
+//	- car 인스턴스에 각각 Engine이 존재
+//엔진은 차에 의해 관리됨
+//	- car 인스턴스가 생성될때, 소멸될 때 각각 engine 따라가죠
+//엔진은 차량이 뭔지 모름
+//	-Engine에서는 car에 접근할 수단이 없음
 
-	DogHouse(const DogHouse& from)
-	{
-		// shallow copy
-		//pOwner = from.pOwner;
+//class Engine
+//{
+//	int mHorsePower;
+//	int mTorque;
+//	int mZero100;
+//};
+//
+//class Car
+//{
+//	Engine mEngine;
+//	Body mBody;
+//};
 
-		//Deep copy
-		pOwner = new Dog(*from.pOwner);
-	}
-};
 
-Dog happy;
+//차 has-a 타이어 // 포인터 맴버 변수
+//
+//타이어는 차의 일부 요소
+//타이어는 여러 자동차가 소유할 수 있음
+//타이어는 차량에 의해 관리 되지 않음
+//타이어는 차량을 모름
+//
+//class Tire
+//{
+//	int mWheelSize;
+//};
+//
+//class Car
+//{
+//	Tire* mpTire;
+//};
+//
+//Tire t1 = new Tire;
+//Car car1;
+//car1.mpTire = t1;
+//////
+//delete t1;
 
-DogHouse home(happy);
+
+//운전자 use-a 차 // 멤버 포인터 변수 -> 함수 매개변수 포인터
+//
+//차는 운전자와 관련이 없음
+//차는 여러 운전자가 사용가능
+//차는 운전자에 의해 될 수도 아닐 수도
+//차는 운전자를 모를, 알수도
+//
+//class Driver
+//{
+//
+//};
+//
+//class Car
+//{
+//	//Driver* pDriver;
+//	void DriveBy(Driver* pDriver);
+//};
+//
+//상속(파생) Inheritanve/Derivation
+//
+//Derivation		Ingeritance
+//Base Class		Parent Class		Super Class
+//Derived Class	Child Class			Sub Class
+//
+//C++ 문법
+//	class <child-class> : [virtual] [access-modifier] <parent-class>, ...
+
+//Parent		pulic상속		protected상속		private상속
+//public		public			protected			private
+//protected		protected		protected			private
+//private		접근불가		접근불가			접근불가
+
+//class MyParent
+//{
+//private:
+//	int mPrivate;
+//public:
+//	int mPublic;
+//protected:
+//	int Protected; // private + 자식들에게 허용
+//};
+//
+//class MyChild : public MyParent
+//{
+//	void DoSomething()
+//	{
+//		this->mPublic;
+//		this->Protected;
+//	}
+//
+//};
+//
+//int main()
+//{
+//	MyChild c;
+//
+//	c.mPublic;
+//}

@@ -13,10 +13,42 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Inheritance">
+      <UniqueIdentifier>{89940a3a-baf8-404d-b3ee-31c5772b897f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Dog.cpp">
+      <Filter>Inheritance</Filter>
+    </ClCompile>
+    <ClCompile Include="Cat.cpp">
+      <Filter>Inheritance</Filter>
+    </ClCompile>
+    <ClCompile Include="Animal.cpp">
+      <Filter>Inheritance</Filter>
+    </ClCompile>
+    <ClCompile Include="main2.cpp">
+      <Filter>Inheritance</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Dog.h">
+      <Filter>Inheritance</Filter>
+    </ClInclude>
+    <ClInclude Include="Cat.h">
+      <Filter>Inheritance</Filter>
+    </ClInclude>
+    <ClInclude Include="Animal.h">
+      <Filter>Inheritance</Filter>
+    </ClInclude>
+    <ClInclude Include="Developer.h">
+      <Filter>Inheritance</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
