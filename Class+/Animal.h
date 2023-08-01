@@ -3,12 +3,13 @@
 class Animal
 {
 protected:
-	int mAge;
+	 int mAge;
 	int mWeight;
 
 public:
 	Animal();
-	~Animal();
+	Animal(int age, int weight);
+	virtual~Animal();
 
 	int GetAge() const;
 	int GetWeight() const;
